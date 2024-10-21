@@ -41,6 +41,32 @@ const Home = () => {
             source={{ uri: selectedfaceData.image }}
             style={{ width: 150, height: 150, marginTop: 20 }}
           />
+          <Text style={{ marginTop: 30, fontSize: 25 }}>How Can I Help you?</Text>
+
+          <View
+            style={{
+              marginTop: 20,
+              backgroundColor: '#f5f5f5',
+              alignItems: 'center',
+              height: 110,
+              padding: 10,
+              borderRadius: 10,
+            }}>
+            <FlatList
+              data={ChatFaceData}
+              horizontal={true}
+              renderItem={({ item }) =>
+                selectedfaceData.id !== item.id && (
+                  <View style={{ margin: 15 }}>
+                    <Image source={{ uri: item.image }} style={{ width: 40, height: 40 }} />
+                  </View>
+                )
+              }
+            />
+            <Text style={{ marginTop: 5, fontSize: 17, color: '#B0B0B0' }}>
+              Choose your chat buddy
+            </Text>
+          </View>
         </>
       )}
     </View>
